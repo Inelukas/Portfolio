@@ -30,6 +30,10 @@ const StyledStartPage = styled.div`
     h3 {
       font-size: 1.5rem;
     }
+
+    @media screen and (max-width: 900px) {
+      flex-direction: column;
+    }
   }
 
   .links {
@@ -64,6 +68,10 @@ const StyledStartPage = styled.div`
   .myself {
     max-width: 300px;
     border-radius: 20px;
+
+    @media screen and (max-width: 900px) {
+      max-width: 200px;
+    }
   }
 
   .myself-box {
@@ -78,6 +86,12 @@ const StyledStartPage = styled.div`
     width: 310px;
     height: 148px;
     box-shadow: 20px 20px 10px var(--text-color);
+
+    @media screen and (max-width: 900px) {
+      width: 210px;
+      height: 100px;
+      box-shadow: 15px 15px 10px;
+    }
   }
 
   .about {
@@ -122,6 +136,16 @@ const StyledStartPage = styled.div`
     background-color: var(--background-color);
     background-image: var(--custom-image);
     box-shadow: 0px 0px 3px 3px var(--primary-color);
+
+    @media screen and (max-width: 1000px) {
+      height: auto;
+      width: 100%;
+      top: auto;
+      bottom: 0px;
+      flex-direction: row;
+      justify-content: center;
+      gap: 20px;
+    }
   }
 
   .project-list {
@@ -130,13 +154,26 @@ const StyledStartPage = styled.div`
     align-items: center;
     flex-wrap: wrap;
     gap: 50px;
-    margin: 10% 0;
+    margin-top: 5%;
+    margin-bottom: 10%;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 10%;
+      margin-bottom: 20%;
+    }
   }
 
   .skills-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5%;
+    margin-bottom: 10%;
+
+    @media screen and (max-width: 768px) {
+      margin-top: 10%;
+      margin-bottom: 20%;
+    }
   }
 
   .skills {
@@ -147,6 +184,10 @@ const StyledStartPage = styled.div`
     gap: 50px;
     margin: 5% 0;
     flex-wrap: wrap;
+
+    @media screen and (max-width: 768px) {
+      margin: 10% 0;
+    }
   }
 
   .contact {
@@ -205,37 +246,6 @@ const StyledStartPage = styled.div`
     &:hover {
       background-color: var(--text-color);
       color: black;
-    }
-  }
-
-  @media screen and (max-width: 1000px) {
-    .home {
-      flex-direction: column;
-    }
-
-    .links-fixed {
-      height: auto;
-      width: 100%;
-      top: auto;
-      bottom: 0px;
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
-    }
-
-    .myself {
-      max-width: 200px;
-    }
-
-    .skill,
-    .project {
-      max-width: 90%;
-    }
-
-    .myself-shadow {
-      width: 210px;
-      height: 100px;
-      box-shadow: 15px 15px 10px;
     }
   }
 `;
