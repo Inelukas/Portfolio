@@ -1,8 +1,10 @@
 import styled from "styled-components";
 import myself from "../../assets/pic2.png";
-import quizapp from "../../assets/quizapp.png";
-import hangman from "../../assets/hangman.png";
+import { projects, skills, languages } from "../../lib/data";
 import { useState } from "react";
+import { Project } from "../Project/Project";
+import { Skill } from "../Skill/Skill";
+import { Language } from "../Language/Language";
 
 const StyledStartPage = styled.div`
   height: 100%;
@@ -39,6 +41,11 @@ const StyledStartPage = styled.div`
     margin: 10px 0;
     cursor: pointer;
     font-size: 1.2rem;
+    transition: transform 0.3s ease;
+
+    &:active {
+      transform: scale(0.95);
+    }
 
     &:hover {
       text-decoration: underline;
@@ -57,7 +64,6 @@ const StyledStartPage = styled.div`
   .myself {
     max-width: 300px;
     border-radius: 20px;
-    /* box-shadow: 5px 5px 5px var(--primary-color); */
   }
 
   .myself-box {
@@ -70,15 +76,16 @@ const StyledStartPage = styled.div`
     bottom: 5px;
     right: 0px;
     width: 310px;
-    height: 150px;
-    box-shadow: 20px 20px 10px var(--primary-color);
+    height: 148px;
+    box-shadow: 20px 20px 10px var(--text-color);
   }
 
   .about {
-    height: 75vh;
-    min-width: 400px;
-    margin: 5% 30%;
-    padding: 10px;
+    height: auto;
+    width: 100%;
+    max-width: 600px;
+    margin: 10% 10%;
+    padding: 20px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -87,6 +94,18 @@ const StyledStartPage = styled.div`
     gap: 10px;
     line-height: 1.5;
     box-shadow: 5px 5px var(--primary-color);
+    border-radius: 10px;
+    font-size: 1rem;
+
+    @media screen and (max-width: 768px) {
+      font-size: 0.9rem;
+      padding: 15px;
+    }
+
+    @media screen and (max-width: 480px) {
+      font-size: 0.8rem;
+      padding: 10px;
+    }
   }
 
   .links-fixed {
@@ -113,43 +132,10 @@ const StyledStartPage = styled.div`
     margin: 10% 0;
   }
 
-  .project {
-    max-width: 400px;
+  .skills-container {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    /* border: 2px solid var(--primary-color); */
-    box-shadow: 5px 5px 5px 5px var(--shadow-color);
-    border-radius: 20px;
-    padding: 20px;
-    text-align: center;
-
-    &:hover {
-      box-shadow: 10px 10px 10px 10px var(--primary-color);
-    }
-
-    h2 {
-      font-size: 1.8rem;
-      text-decoration: underline;
-      cursor: pointer;
-
-      &:hover {
-        color: var(--primary-color);
-      }
-    }
-
-    p {
-      font-size: 1rem;
-      line-height: 1.5;
-    }
-
-    a {
-      color: var(--text-color);
-      line-height: 2;
-      &:hover {
-        color: var(--primary-color);
-      }
-    }
+    align-items: center;
   }
 
   .skills {
@@ -160,36 +146,9 @@ const StyledStartPage = styled.div`
     gap: 50px;
     margin: 5% 0;
     flex-wrap: wrap;
-  }
 
-  .skill {
-    max-width: 600px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    /* border: 2px solid var(--primary-color); */
-    box-shadow: 5px 5px 5px 5px var(--shadow-color);
-    border-radius: 20px;
-    padding: 20px;
-
-    &:hover {
-      box-shadow: 10px 10px 10px 10px var(--primary-color);
-    }
-
-    h2 {
-      font-size: 2rem;
-      text-decoration: underline;
-      cursor: pointer;
-
-      &:hover {
-        color: var(--primary-color);
-      }
-    }
-
-    p,
-    ul {
-      font-size: 1rem;
-      line-height: 1.5;
+    img {
+      width: 120px;
     }
   }
 
@@ -230,24 +189,25 @@ const StyledStartPage = styled.div`
       cursor: pointer;
 
       &:hover {
-        background-color: darken(var(--primary-color), 10%);
+        transform: scale(1.2);
       }
     }
   }
 
   .language-toggle {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
     cursor: pointer;
-    background: var(--primary-color);
+    background-color: var(--primary-color);
     color: white;
     padding: 5px 10px;
     border-radius: 5px;
     z-index: 2;
 
     &:hover {
-      background-color: darken(var(--primary-color), 10%);
+      background-color: var(--text-color);
+      color: black;
     }
   }
 
@@ -256,9 +216,8 @@ const StyledStartPage = styled.div`
       flex-direction: column;
     }
 
-    .project-list,
-    .skills {
-      flex-direction: column;
+    .about {
+      font-size: 12px;
     }
 
     .links-fixed {
@@ -283,24 +242,14 @@ const StyledStartPage = styled.div`
     .myself-shadow {
       width: 210px;
       height: 100px;
-      box-shadow: 15px 15px 10px var(--primary-color);
+      box-shadow: 15px 15px 10px;
     }
   }
 `;
 
 export function StartPage() {
   const [currentPage, setCurrentPage] = useState("home");
-  const [showProject, setShowProject] = useState("games");
-  const [showSkill, setShowSkill] = useState("coding");
   const [language, setLanguage] = useState("en");
-
-  function toggleShowProject(project) {
-    setShowProject(project === showProject ? "" : project);
-  }
-
-  function toggleShowSkill(skill) {
-    setShowSkill(skill === showSkill ? "" : skill);
-  }
 
   function toggleLanguage() {
     setLanguage(language === "en" ? "de" : language === "de" ? "jp" : "en");
@@ -405,228 +354,129 @@ export function StartPage() {
         <>
           {currentPage === "about" && (
             <div className="about">
-              {language === "jp" ? <h2>こんにちは！</h2> : <h2>Hi!</h2>}
-              <p>
-                {language === "en"
-                  ? "I'm Lukas – a traveler, language lover, and now an enthusiastic code junkie. 🍃"
-                  : language === "de"
-                  ? "Ich bin Lukas – ein Weltenbummler, Sprachliebhaber und mittlerweile auch begeisterter Code-Junkie. 🍃"
-                  : "ルーカスです。旅行好きで、言語愛好家であり、今では熱心なコードジャンキーです。🍃"}
-              </p>
-              <p>
-                {language === "en"
-                  ? "After eight adventurous years in East Asia, where I studied, worked, and lost my heart to both Japan and Taiwan, I have landed back in Germany. Here, I'm dedicating myself to a new passion: coding."
-                  : language === "de"
-                  ? "Nach acht abenteuerlichen Jahren in Ostasien, wo ich studiert, gearbeitet und mein Herz sowohl in Japan als auch in Taiwan verloren habe, bin ich zurück in Deutschland gelandet. Hier widme ich mich einer neuen Leidenschaft: dem Programmieren."
-                  : "東アジアでの8年間の冒険で、勉強し、働き、日本と台湾の両方に心を奪われ、今はドイツに戻ってきました。ここで、新しい情熱であるコーディングに専念しています。"}
-              </p>
-              <p>
-                {language === "en"
-                  ? "My journey into the IT world began with a bootcamp at neuefische, where I not only improved my coding skills but also discovered how much I love solving problems with logic and creativity. Whether it's about implementing cool projects or nerding out with others about the best code – I'm all in! 💻"
-                  : language === "de"
-                  ? "Meine Reise in die IT-Welt begann mit einem Bootcamp beineuefische, wo ich nicht nur meine Coding-Skills verbessert, sondern auch entdeckt habe, wie sehr ich es liebe, Probleme mit Logik und Kreativität zu lösen. Ob es darum geht, coole Projekte umzusetzen oder mit anderen Nerds über den besten Code zu fachsimpeln – ich bin voll dabei! 💻"
-                  : "ITの旅はneuefischeのブートキャンプから始まり、そこでコーディングスキルを向上させただけでなく、論理と創造力で問題を解決することがどれほど好きかも発見しました。クールなプロジェクトを実装することでも、最高のコードについて他の人と話し合うことでも、私は全力で取り組んでいます！💻"}
-              </p>
-              <p>
-                {language === "en"
-                  ? "When I'm not tinkering with my code, you'll probably find me learning languages. I speak English and Japanese fluently, can handle Mandarin at a professional level, and I also get by well with everyday Korean. Spanish and Latin are also in my repertoire if you ever need a translator for ancient texts. 😉"
-                  : language === "de"
-                  ? "Wenn ich nicht gerade an meinem Code tüftle, findest du mich wahrscheinlich beim Sprachenlernen. Englisch und Japanisch spreche ich fließend, Mandarin kann ich auf professionellem Niveau, und mit Alltags-Koreanisch komme ich auch gut zurecht. Spanisch und Latein sind ebenfalls in meinem Repertoire, falls du mal einen Übersetzer für antike Texte brauchst. 😉"
-                  : "コーディングをしていない時は、言語を学んでいるでしょう。英語と日本語は流暢に話せ、マンダリンもプロフェッショナルなレベルで扱えます。また、日常の韓国語にも慣れています。もし古典的なテキストの翻訳者が必要なら、スペイン語やラテン語もお任せください。😉"}
-              </p>
-              <p>
-                {language === "en"
-                  ? "I'm always excited about new challenges and can't wait to see where the next journey takes me – whether in the real world or the digital one."
-                  : language === "de"
-                  ? "Ich freue mich immer über neue Herausforderungen und bin gespannt, wohin die nächste Reise geht – ob in der realen Welt oder in der digitalen."
-                  : "新しい挑戦にはいつもワクワクしており、次の旅が現実の世界かデジタルの世界か、どちらに向かうのか楽しみにしています。"}
-              </p>
+              {language === "jp" && (
+                <>
+                  <h2>こんにちは！</h2>
+                  <p>
+                    ルーカスです。旅行好きで、言語愛好家であり、今では熱心なコードジャンキーです。🍃
+                  </p>
+                  <p>
+                    東アジアでの8年間の冒険で、勉強し、働き、日本、台湾と韓国に心を奪われ、
+                    今はドイツに戻ってきました。ここで、新しい情熱であるコーディングに専念しています。
+                  </p>
+                  <p>
+                    ITの旅はneuefischeのブートキャンプから始まり、そこでコーディングスキルを向上
+                    させただけでなく、論理と創造力で問題を解決することがどれほど好きかも発見しました。
+                    クールなプロジェクトを実装することでも、最高のコードについて他の人と話し合うこと
+                    でも、私は全力で取り組んでいます！💻
+                  </p>
+                  <p>
+                    コーディングをしていない時は、言語を学んでいるでしょう。英語と日本語は流暢に話せ、
+                    マンダリンもプロフェッショナルなレベルで扱えます。また、日常の韓国語にも慣れています。
+                    もし古典的なテキストの翻訳者が必要なら、スペイン語やラテン語もお任せください。😉
+                  </p>
+                  <p>
+                    新しい挑戦にはいつもワクワクしており、次の旅が現実の世界かデジタルの世界か、
+                    どちらに向かうのか楽しみにしています。
+                  </p>
+                </>
+              )}
+              {language === "de" && (
+                <>
+                  <h2>Hi!</h2>
+                  <p>
+                    Ich bin Lukas – ein Weltenbummler, Sprachliebhaber und
+                    mittlerweile auch begeisterter Code-Junkie. 🍃
+                  </p>
+                  <p>
+                    Nach acht abenteuerlichen Jahren in Ostasien, wo ich
+                    studiert, gearbeitet und mein Herz sowohl in Japan als auch
+                    in Taiwan und Süd-Korea verloren habe, bin ich zurück in
+                    Deutschland gelandet. Hier widme ich mich einer neuen
+                    Leidenschaft: dem Programmieren.
+                  </p>
+                  <p>
+                    Meine Reise in die IT-Welt begann mit einem Bootcamp bei
+                    neuefische, wo ich nicht nur meine Coding-Skills verbessert,
+                    sondern auch entdeckt habe, wie sehr ich es liebe, Probleme
+                    mit Logik und Kreativität zu lösen. Ob es darum geht, coole
+                    Projekte umzusetzen oder mit anderen Nerds über den besten
+                    Code zu fachsimpeln – ich bin voll dabei! 💻
+                  </p>
+                  <p>
+                    Wenn ich nicht gerade an meinem Code tüftle, findest du mich
+                    wahrscheinlich beim Sprachenlernen. Englisch und Japanisch
+                    spreche ich fließend, Mandarin kann ich auf professionellem
+                    Niveau, und mit Alltags-Koreanisch komme ich auch gut
+                    zurecht. Spanisch und Latein sind ebenfalls in meinem
+                    Repertoire, falls du mal einen Übersetzer für antike Texte
+                    brauchst. 😉
+                  </p>
+                  <p>
+                    Ich freue mich immer über neue Herausforderungen und bin
+                    gespannt, wohin die nächste Reise geht – ob in der realen
+                    Welt oder in der digitalen.
+                  </p>
+                </>
+              )}
+              {language === "en" && (
+                <>
+                  <h2>Hi!</h2>
+                  <p>
+                    I'm Lukas – a traveler, language lover, and now an
+                    enthusiastic code junkie. 🍃
+                  </p>
+                  <p>
+                    After eight adventurous years in East Asia, where I studied,
+                    worked, and lost my heart to Japan, Taiwan, and South Korea,
+                    I have landed back in Germany. Here, I'm dedicating myself
+                    to a new passion: coding.
+                  </p>
+                  <p>
+                    My journey into the IT world began with a bootcamp at
+                    neuefische, where I not only improved my coding skills but
+                    also discovered how much I love solving problems with logic
+                    and creativity. Whether it's about implementing cool
+                    projects or nerding out with others about the best code –
+                    I'm all in! 💻
+                  </p>
+                  <p>
+                    When I'm not tinkering with my code, you'll probably find me
+                    learning languages. I speak English and Japanese fluently,
+                    can handle Mandarin at a professional level, and I also get
+                    by well with everyday Korean. Spanish and Latin are also in
+                    my repertoire if you ever need a translator for ancient
+                    texts. 😉
+                  </p>
+                  <p>
+                    I'm always excited about new challenges and can't wait to
+                    see where the next journey takes me – whether in the real
+                    world or the digital one.
+                  </p>
+                </>
+              )}
             </div>
           )}
           {currentPage === "projects" && (
             <div className="project-list">
-              <div className="project">
-                <h2 onClick={() => toggleShowProject("capstone")}>
-                  Capstone Project
-                </h2>
-                {showProject === "capstone" && (
-                  <>
-                    <p>Das Capstone Projekt bei neuefische</p>
-                    <a href="https://new-quiz-app-pi.vercel.app/">
-                      Link zum Capstone-Project
-                    </a>
-                  </>
-                )}
-              </div>
-              <div className="project">
-                <h2 onClick={() => toggleShowProject("games")}>
-                  {language === "en" ? "Games" : "Spiele"}
-                </h2>
-                {showProject === "games" && (
-                  <>
-                    <p>
-                      {language === "en"
-                        ? "My React game portfolio includes various browser games, such as a Hangman game and a PacMan game. All games are designed with React and styled-components."
-                        : "Mein React-Spielportfolio umfasst verschiedene Browsergames, wie ein Galgenraten-Spiel und ein PacMan-Spiel. Alle Spiele sind mit React und styled-components gestaltet."}
-                    </p>
-                    <ul>
-                      <li>
-                        <a href="https://chicken-game-jade.vercel.app/">
-                          Chicken Game
-                        </a>{" "}
-                        &nbsp;(
-                        <a href="https://github.com/Inelukas/Chicken-Game">
-                          GitHub Repo
-                        </a>
-                        )
-                      </li>
-                      <li>
-                        <a href="https://hangman-lilac-nine.vercel.app/">
-                          Hangman
-                        </a>{" "}
-                        &nbsp;(
-                        <a href="https://github.com/Inelukas/Hangman">
-                          GitHub Repo
-                        </a>
-                        )
-                      </li>
-                      <li>
-                        <a href="https://car-game-kohl.vercel.app/">Car Game</a>
-                        &nbsp;(
-                        <a href="https://github.com/Inelukas/Car-Game">
-                          GitHub Repo
-                        </a>
-                        )
-                      </li>
-                    </ul>
-                    <img src={hangman} alt="Hangman" />
-                  </>
-                )}
-              </div>
-              <div className="project">
-                <h2 onClick={() => toggleShowProject("more")}>
-                  Weitere Projekte
-                </h2>
-                {showProject === "more" && (
-                  <>
-                    <p>
-                      Im Laufe meiner Studien im Rahmen eines Bootcamps,
-                      diverser Kurse auf udemy und im privaten Rahmen habe ich
-                      zahlreiche weitere Projekte abgeschlossen. Diese umfassen
-                      eine Webseite zum Speichern und Editieren von Farbschemen,
-                      einen Kosten-Kalkulator und weitere Projekte.
-                    </p>
-                    <h4>Projekte:</h4>
-                    <ul>
-                      <li>
-                        <a href="https://recap4-v-2.vercel.app/">
-                          Color Theme Creator
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://to-do-list-gamma-one-95.vercel.app/">
-                          To-Do-List
-                        </a>
-                      </li>
-                      <li>
-                        <a href="https://new-quiz-app-pi.vercel.app/">
-                          Quiz App
-                        </a>
-                      </li>
-                    </ul>
-                    <img src={quizapp} alt="Quizapp" />
-                  </>
-                )}
-              </div>
+              {projects.map((project) => (
+                <Project data={project} />
+              ))}
             </div>
           )}
           {currentPage === "skills" && (
-            <div className="skills">
-              <div className="skill">
-                <h2 onClick={() => toggleShowSkill("coding")}>
-                  {language === "en" ? "Coding" : "Programmieren"}
-                </h2>
-                {showSkill === "coding" && (
-                  <p>
-                    Programmieren ist für mich mehr als nur Code schreiben—es
-                    ist Problemlösung pur. Mit JavaScript, React, Next.js und
-                    Node.js entwickle ich kreative Lösungen und realisiere
-                    anspruchsvolle Projekte. Durch enge Teamarbeit habe ich
-                    gelernt, wie wichtig offener Austausch und gemeinsame
-                    Problemlösung sind. Geduld und Hartnäckigkeit haben mir
-                    geholfen, auch hartnäckige Bugs zu überwinden. In einer
-                    schnelllebigen IT-Welt bleibe ich durch ständiges Lernen am
-                    Puls der Zeit. Mit adaptivem Denken passe ich mich schnell
-                    neuen Anforderungen an und bin bereit, jede Herausforderung
-                    anzupacken.
-                  </p>
-                )}
+            <div className="skills-container">
+              <h2>I have experience with these technologies:</h2>
+              <div className="skills">
+                {skills.map((skill) => (
+                  <Skill data={skill} />
+                ))}
               </div>
-              <div className="skill">
-                <h2 onClick={() => toggleShowSkill("languages")}>Sprachen</h2>
-                {showSkill === "languages" && (
-                  <>
-                    <p>
-                      Ich spreche fließend Englisch und Japanisch, beherrsche
-                      Mandarin auf professionellem Niveau und habe gute
-                      Kenntnisse in Koreanisch. Zusätzlich habe ich
-                      Grundkenntnisse in Spanisch und Latein. Meine
-                      Sprachkompetenzen ermöglichen mir, effektiv in
-                      internationalen Teams zu arbeiten und komplexe technische
-                      Dokumentationen sowie Benutzeroberflächen in mehreren
-                      Sprachen zu verstehen und zu erstellen. Diese
-                      Vielseitigkeit unterstützt mich bei der globalen
-                      Kommunikation und verbessert die Zugänglichkeit meiner
-                      Projekte für ein breites Publikum. Ich habe folgende
-                      Sprachklausuren bestanden:
-                    </p>
-                    <ul>
-                      <li>Deutsch: Muttersprache</li>
-                      <li>Englisch: TOEIC 990pt (2017)</li>
-                      <li>Japanisch: JLPT N1 (2017)</li>
-                      <li>Mandarin: TOCFL B2 (2021)</li>
-                      <li>Koreanisch: TOPIK 4 (2017)</li>
-                    </ul>
-                  </>
-                )}
-              </div>
-              <div className="skill">
-                <h2 onClick={() => toggleShowSkill("translation")}>
-                  Übersetzung
-                </h2>
-                {showSkill === "translation" && (
-                  <p>
-                    Mit über drei Jahren Erfahrung als Übersetzer und Lektor
-                    bringe ich eine präzise und kulturell passende
-                    Sprachübertragung mit. Ich habe Fachtexte aus Japanisch und
-                    Mandarin (sowohl vereinfachte als auch traditionelle
-                    Schrift) ins Englische und Deutsche übersetzt. Meine Arbeit
-                    umfasst alles von Videospielen bis zu Webseiten und
-                    Kurzgeschichten. Diese Erfahrung hat meine Fähigkeit zur
-                    präzisen Kommunikation und kulturellen Anpassung
-                    geschärft—Fähigkeiten, die ich in die IT-Welt einbringe, um
-                    klare und effektive technische Dokumentationen zu erstellen.
-                  </p>
-                )}
-              </div>
-              <div className="skill">
-                <h2 onClick={() => toggleShowSkill("soft")}>Soft Skills</h2>
-                {showSkill === "soft" && (
-                  <p>
-                    In der IT-Branche sind Soft Skills genauso wichtig wie
-                    technisches Wissen. Meine internationalen Erfahrungen haben
-                    mir geholfen, ausgezeichnete Kommunikationsfähigkeiten und
-                    kulturelle Sensibilität zu entwickeln. Ich bin flexibel und
-                    kann mich schnell an neue Teams und Projekte anpassen. Durch
-                    effektives Zeitmanagement und Organisation bringe ich
-                    Projekte effizient zum Abschluss, während meine
-                    Teamfähigkeit und Konfliktlösungskompetenz für ein
-                    harmonisches Arbeitsumfeld sorgen. Ich bin stets offen für
-                    Feedback und kontinuierliche Verbesserung, was mir hilft, in
-                    dynamischen und schnelllebigen IT-Projekten erfolgreich zu
-                    sein.
-                  </p>
-                )}
+              <h2>I can speak the following languages:</h2>
+              <div className="skills">
+                {languages.map((language) => (
+                  <Language data={language} />
+                ))}
               </div>
             </div>
           )}
