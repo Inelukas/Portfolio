@@ -99,6 +99,7 @@ const StyledStartPage = styled.div`
 
     @media screen and (max-width: 768px) {
       font-size: 0.9rem;
+      margin: 15% 10%;
       padding: 15px;
     }
 
@@ -146,10 +147,6 @@ const StyledStartPage = styled.div`
     gap: 50px;
     margin: 5% 0;
     flex-wrap: wrap;
-
-    img {
-      width: 120px;
-    }
   }
 
   .contact {
@@ -214,10 +211,6 @@ const StyledStartPage = styled.div`
   @media screen and (max-width: 1000px) {
     .home {
       flex-direction: column;
-    }
-
-    .about {
-      font-size: 12px;
     }
 
     .links-fixed {

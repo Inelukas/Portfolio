@@ -15,6 +15,7 @@ const StyledLanguage = styled.div`
 
   .flag {
     height: 60px;
+    width: 120px;
   }
 
   img.star {
