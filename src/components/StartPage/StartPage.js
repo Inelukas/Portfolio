@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import myself from "../../assets/pic2.png";
+import myself from "../../assets/color-final.png";
 import { projects, skills, languages } from "../../lib/data";
 import { useState } from "react";
 import { Project } from "../Project/Project";
