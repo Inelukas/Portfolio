@@ -5,17 +5,20 @@ import blackstar from "../../assets/star-black.png";
 const StyledLanguage = styled.div`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   gap: 10px;
   width: 180px;
   height: 180px;
   box-shadow: 5px 5px 5px 5px var(--shadow-color);
   border-radius: 20px;
-  padding: 20px;
+  padding: 10px 20px;
   transition: transform 0.3s ease;
 
   .flag {
-    height: 60px;
-    width: 120px;
+    height: 40px;
+    width: 80px;
   }
 
   img.star {
@@ -23,11 +26,27 @@ const StyledLanguage = styled.div`
   }
 `;
 
-export function Language({ data }) {
+export function Language({ data, language }) {
   return (
     <StyledLanguage>
-      <h2>{data.language}</h2>
-      <img className="flag" src={data.flag} alt={`${data.language} Flag`} />
+      <h2>
+        {language === "en"
+          ? data.language.en
+          : language === "de"
+          ? data.language.de
+          : data.language.jp}
+      </h2>
+      <img
+        className="flag"
+        src={data.flag}
+        alt={`${
+          language === "en"
+            ? data.language.en
+            : language === "de"
+            ? data.language.de
+            : data.language.jp
+        } Flag`}
+      />
       <div>
         {data.fluency.map((starType, index) => (
           <img
@@ -38,7 +57,13 @@ export function Language({ data }) {
           />
         ))}
       </div>
-      <p>{data.certificate}</p>
+      <p>
+        {language === "en"
+          ? data.certificate.en
+          : language === "de"
+          ? data.certificate.de
+          : data.certificate.jp}
+      </p>
     </StyledLanguage>
   );
 }

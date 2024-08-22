@@ -30,15 +30,4 @@ background-image: var(--custom-image);
     font-weight: 400;
   }
 
-  .dark-mode {
-    --primary-color: #000000;
-    --secondary-color: #333333;
-    --tertiary-color: #444444;
-    --side-color: #555555;
-    --text-color: #F5E7B2;
-    --text-color-2: #000000;
-    --icon-color: #555555;
-    --custom-image: url("https://www.transparenttextures.com/patterns/back-pattern.png");
-  }
-
 `;

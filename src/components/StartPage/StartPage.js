@@ -5,6 +5,8 @@ import { useState } from "react";
 import { Project } from "../Project/Project";
 import { Skill } from "../Skill/Skill";
 import { Language } from "../Language/Language";
+import { ContactForm } from "../ContactForm/ContactForm";
+import { Navigation } from "../Navigation/Navigation";
 
 const StyledStartPage = styled.div`
   height: 100%;
@@ -97,8 +99,8 @@ const StyledStartPage = styled.div`
   .about {
     height: auto;
     width: 100%;
-    max-width: 600px;
-    margin: 10% 10%;
+    max-width: 700px;
+    margin: 5% 10%;
     padding: 20px;
     display: flex;
     flex-direction: column;
@@ -120,31 +122,6 @@ const StyledStartPage = styled.div`
     @media screen and (max-width: 480px) {
       font-size: 0.8rem;
       padding: 10px;
-    }
-  }
-
-  .links-fixed {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: end;
-    height: 100%;
-    position: fixed;
-    right: 0;
-    top: 0;
-    padding: 10px;
-    background-color: var(--background-color);
-    background-image: var(--custom-image);
-    box-shadow: 0px 0px 3px 3px var(--primary-color);
-
-    @media screen and (max-width: 1000px) {
-      height: auto;
-      width: 100%;
-      top: auto;
-      bottom: 0px;
-      flex-direction: row;
-      justify-content: center;
-      gap: 20px;
     }
   }
 
@@ -204,34 +181,6 @@ const StyledStartPage = styled.div`
     }
   }
 
-  .contact-form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-
-    input,
-    textarea {
-      width: 400px;
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      font-size: 1rem;
-    }
-
-    button {
-      padding: 10px 20px;
-      border: none;
-      border-radius: 5px;
-      background-color: var(--primary-color);
-      color: white;
-      cursor: pointer;
-
-      &:hover {
-        transform: scale(1.2);
-      }
-    }
-  }
-
   .language-toggle {
     position: fixed;
     top: 20px;
@@ -266,14 +215,14 @@ export function StartPage() {
       {currentPage === "home" && (
         <div className="home">
           <div className="introduction">
-            <h1>
+            <div>
               {language === "en" ? (
                 <>
                   <h1>Welcome.</h1>
                   <h2>I'm Lukas.</h2>
                   <h3>
-                    Passionate React Developer &nbsp;|&nbsp; Multilingual
-                    Problem Solver
+                    Passionate React Developer &nbsp;|&nbsp; Multilingual World
+                    Traveller
                   </h3>
                 </>
               ) : language === "de" ? (
@@ -282,17 +231,19 @@ export function StartPage() {
                   <h2>Ich bin Lukas.</h2>
                   <h3>
                     React Developer aus Leidenschaft &nbsp;|&nbsp;
-                    Multilingualer Problemlöser
+                    Multilingualer Weltenbummler
                   </h3>
                 </>
               ) : (
                 <>
                   <h1>ようこそ.</h1>
                   <h2>ルーカスです。</h2>
-                  <h3>情熱的なReact開発者 &nbsp;|&nbsp; 多言語専門家</h3>
+                  <h3>
+                    熱意あるReact開発者 &nbsp;|&nbsp; 多言語を操る世界の旅人
+                  </h3>
                 </>
               )}
-            </h1>
+            </div>
             <h3>______________________________________</h3>
             <div className="links">
               <h3
@@ -361,11 +312,15 @@ export function StartPage() {
                 <>
                   <h2>こんにちは！</h2>
                   <p>
-                    ルーカスです。旅行好きで、言語愛好家であり、今では熱心なコードジャンキーです。🍃
+                    ルーカスです。旅行好きで、言語愛好家であり、今では熱心なコードオタクです。🤓
                   </p>
                   <p>
-                    東アジアでの8年間の冒険で、勉強し、働き、日本、台湾と韓国に心を奪われ、
-                    今はドイツに戻ってきました。ここで、新しい情熱であるコーディングに専念しています。
+                    8年間、私は東アジアに心を奪われていた。日本では、毎週地元の銭湯に通うのが日課となり、
+                    43度のお湯の中で、名前も知らない年配の裸の紳士たちとおしゃべりを楽しんだ。韓国では、
+                    夜中に年中無休のコイン・カラオケに行き、暗い部屋で一人思い切り歌うのが日課になった。
+                    台湾ではハイキングの楽しさに目覚め、週末は何度も台北近郊の山に登り、時には断崖絶壁を登った。
+                    そして今、私はドイツに戻ってきた。ここでは、旅行と言語学習以外にもうひとつの情熱、
+                    プログラミングに打ち込んでいる。
                   </p>
                   <p>
                     ITの旅はneuefischeのブートキャンプから始まり、そこでコーディングスキルを向上
@@ -389,18 +344,28 @@ export function StartPage() {
                   <h2>Hi!</h2>
                   <p>
                     Ich bin Lukas – ein Weltenbummler, Sprachliebhaber und
-                    mittlerweile auch begeisterter Code-Junkie. 🍃
+                    mittlerweile auch begeisterter Code-"Otaku". 🤓
                   </p>
                   <p>
-                    Nach acht abenteuerlichen Jahren in Ostasien, wo ich
-                    studiert, gearbeitet und mein Herz sowohl in Japan als auch
-                    in Taiwan und Süd-Korea verloren habe, bin ich zurück in
-                    Deutschland gelandet. Hier widme ich mich einer neuen
-                    Leidenschaft: dem Programmieren.
+                    Für acht Jahre habe ich mein Herz in Ostasien verloren. In
+                    Japan gehörte es zur Routine, jede Woche ein örtliches
+                    "sentou" (öffentliches Bad) zu besuchen, um bei 43 Grad
+                    heißem Wasser mit nackten, älteren Herren zu plaudern, deren
+                    Namen ich nie erfahren sollte. In Südkorea zog es mich
+                    regelmäßig mitten in der Nacht ins 24/7 geöffnete
+                    Münz-Karaoke, wo ich mir allein in einer dunklen Kammer die
+                    Seele aus dem Leib sang. In Taiwan entdeckte ich die Freude
+                    am Wandern und verbrachte an freien Wochenenden oft Zeit auf
+                    Bergen nahe Taipehs, manchmal an Abgründen entlang, deren
+                    Aussicht auf das nahegelegene Meer die Existenzängste immer
+                    wieder wert war. Und jetzt, nach all dieser Zeit, bin ich
+                    zurück in Deutschland. Hier widme ich mich einer weiteren
+                    Leidenschaft neben dem Reisen und Sprachenlernen: dem
+                    Programmieren.
                   </p>
                   <p>
-                    Meine Reise in die IT-Welt begann mit einem Bootcamp bei
-                    neuefische, wo ich nicht nur meine Coding-Skills verbessert,
+                    Meine Reise in die IT-Welt begann mit einem Web Development
+                    Bootcamp, wo ich nicht nur meine Coding-Skills verbessert,
                     sondern auch entdeckt habe, wie sehr ich es liebe, Probleme
                     mit Logik und Kreativität zu lösen. Ob es darum geht, coole
                     Projekte umzusetzen oder mit anderen Nerds über den besten
@@ -427,13 +392,22 @@ export function StartPage() {
                   <h2>Hi!</h2>
                   <p>
                     I'm Lukas – a traveler, language lover, and now an
-                    enthusiastic code junkie. 🍃
+                    enthusiastic code junkie. 🤓
                   </p>
                   <p>
-                    After eight adventurous years in East Asia, where I studied,
-                    worked, and lost my heart to Japan, Taiwan, and South Korea,
-                    I have landed back in Germany. Here, I'm dedicating myself
-                    to a new passion: coding.
+                    For eight years, I lost my heart to East Asia. In Japan, it
+                    became a routine to visit a local "sentou" (public bath)
+                    every week, where I would chat with naked, older gentlemen
+                    in 43-degree hot water, whose names I would never learn. In
+                    South Korea, I regularly found myself at a 24/7 coin karaoke
+                    in the middle of the night, singing my heart out alone in a
+                    dark room. In Taiwan, I discovered the joy of hiking and
+                    spent many free weekends climbing mountains near Taipeh,
+                    sometimes along sheer cliffs where the view of the nearby
+                    sea made the existential fears always worthwhile. And now,
+                    after all this time, I am back in Germany. Here, I am
+                    dedicating myself to another passion besides traveling and
+                    learning languages: programming.
                   </p>
                   <p>
                     My journey into the IT world began with a bootcamp at
@@ -469,85 +443,54 @@ export function StartPage() {
           )}
           {currentPage === "skills" && (
             <div className="skills-container">
-              <h2>I have experience with these technologies:</h2>
+              <h2>
+                {language === "en"
+                  ? "I have experience with these technologies:"
+                  : language === "de"
+                  ? "Ich habe Erfahrung mit folgenden Technologien:"
+                  : "以下の技術が使えます："}
+              </h2>
               <div className="skills">
                 {skills.map((skill) => (
                   <Skill data={skill} />
                 ))}
               </div>
-              <h2>I can speak the following languages:</h2>
+              <h2>
+                {language === "en"
+                  ? "I can speak the following languages:"
+                  : language === "de"
+                  ? "Ich spreche folgende Sprachen:"
+                  : "以下の言語が話せます："}
+              </h2>
               <div className="skills">
-                {languages.map((language) => (
-                  <Language data={language} />
+                {languages.map((lang) => (
+                  <Language data={lang} language={language} />
                 ))}
               </div>
             </div>
           )}
           {currentPage === "contact" && (
             <div className="contact">
-              <h2>{language === "en" ? "Get in Touch" : "Kontaktiere mich"}</h2>
+              <h2>
+                {language === "en"
+                  ? "Get in Touch"
+                  : language === "de"
+                  ? "Kontaktiere mich"
+                  : "連絡をください"}
+              </h2>
               <a href="mailto:klipp.lukas@gmail.com">GoogleMail</a>
               <a href="https://tw.linkedin.com/in/lukas-klipp-2a9011211?trk=public_profile_browsemap">
                 LinkedIn
               </a>
               <a href="https://github.com/Inelukas">GitHub</a>
               <a href="https://www.instagram.com/inelukas/">Instagram</a>
-              <div className="contact-form">
-                <input
-                  type="text"
-                  placeholder={language === "en" ? "Your Name" : "Ihr Name"}
-                />
-                <input
-                  type="email"
-                  placeholder={language === "en" ? "Your Email" : "Ihre E-Mail"}
-                />
-                <textarea
-                  rows={4}
-                  placeholder={
-                    language === "en" ? "Your Message" : "Ihre Nachricht"
-                  }
-                />
-                <button>{language === "en" ? "Send" : "Senden"}</button>
-              </div>
+              <ContactForm language={language} />
             </div>
           )}
-          <div className="links-fixed">
-            <h3
-              className="link"
-              onClick={() => {
-                setCurrentPage("home");
-              }}
-            >
-              Home
-            </h3>
-            <h3
-              className="link"
-              style={{ color: `${currentPage === "about" ? "red" : ""}` }}
-              onClick={() => {
-                setCurrentPage("about");
-              }}
-            >
-              About
-            </h3>
-            <h3
-              className="link"
-              style={{ color: `${currentPage === "projects" ? "red" : ""}` }}
-              onClick={() => {
-                setCurrentPage("projects");
-              }}
-            >
-              Projects
-            </h3>
-            <h3
-              className="link"
-              style={{ color: `${currentPage === "skills" ? "red" : ""}` }}
-              onClick={() => {
-                setCurrentPage("skills");
-              }}
-            >
-              Skills
-            </h3>
-          </div>
+          <Navigation
+            onCurrentPage={setCurrentPage}
+            currentPage={currentPage}
+          />
         </>
       )}
     </StyledStartPage>

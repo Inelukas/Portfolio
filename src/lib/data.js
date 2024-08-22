@@ -1,12 +1,11 @@
 import hangman from "../assets/hangman.png";
+import mia from "../assets/mia.jpg";
 import art from "../assets/art.png";
 import car from "../assets/car.png";
 import chicken from "../assets/chicken.png";
 import quiz from "../assets/quiz.png";
 import themes from "../assets/themes.png";
 import todo from "../assets/todo.png";
-import star from "../assets/star.png";
-import blackstar from "../assets/star-black.png";
 import german_flag from "../assets/Flag_of_Germany.png";
 import chinese_flag from "../assets/Flag_of_China.png";
 import japanese_flag from "../assets/Flag_of_Japan.png";
@@ -15,6 +14,13 @@ import american_flag from "../assets/Flag_of_USA.png";
 import spanish_flag from "../assets/Flag_of_Spain.png";
 
 export const projects = [
+  {
+    name: "Pet App (pending)",
+    pic: mia,
+    link: "",
+    github: "",
+    madeWith: "Next.js",
+  },
   {
     name: "Hangman",
     pic: hangman,
@@ -123,39 +129,43 @@ export const skills = [
 
 export const languages = [
   {
-    language: "German",
+    language: { en: "German", de: "Deutsch", jp: "ドイツ語" },
     flag: german_flag,
     fluency: ["star", "star", "star", "star", "star"],
-    certificate: "Native",
+    certificate: { en: "Native", de: "Muttersprache", jp: "母語" },
   },
   {
-    language: "English",
+    language: { en: "English", de: "Englisch", jp: "英語" },
     flag: american_flag,
     fluency: ["star", "star", "star", "star", "star"],
-    certificate: "TOEIC 990pt",
+    certificate: { en: "TOEIC 990pt", de: "TOEIC 990pt", jp: "TOEIC 990点" },
   },
   {
-    language: "Japanese",
+    language: { en: "Japanese", de: "Japanisch", jp: "日本語" },
     flag: japanese_flag,
     fluency: ["star", "star", "star", "star", "star"],
-    certificate: "JLPT N1",
+    certificate: { en: "JLPT N1", de: "JLPT N1", jp: "JLPT N1" },
   },
   {
-    language: "Mandarin",
+    language: { en: "Mandarin", de: "Mandarin", jp: "中国語" },
     flag: chinese_flag,
     fluency: ["star", "star", "star", "star", "blackstar"],
-    certificate: "TOCFL B2",
+    certificate: {
+      en: "TOCFL B2",
+      de: "TOCFL B2",
+      jp: "華語文能力測験(TOCFL) B2",
+    },
   },
   {
-    language: "Korean",
+    language: { en: "Korean", de: "Koreanisch", jp: "韓国語" },
     flag: korean_flag,
     fluency: ["star", "star", "star", "blackstar", "blackstar"],
-    certificate: "TOPIK 4",
+    certificate: { en: "TOPIK 4", de: "TOPIK 4", jp: "TOPIK 4" },
   },
   {
-    language: "Spanish",
+    language: { en: "Spanish", de: "Spanisch", jp: "スペイン語" },
     flag: spanish_flag,
     fluency: ["star", "blackstar", "blackstar", "blackstar", "blackstar"],
-    certificate: "",
+    certificate: { en: "", de: "", jp: "" },
   },
 ];
