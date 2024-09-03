@@ -1,6 +1,7 @@
 import hangman from "../assets/hangman.png";
-import mia from "../assets/mia.jpg";
+import petgarden from "../assets/petgarden.png";
 import art from "../assets/art.png";
+import capy from "../assets/capy.png";
 import car from "../assets/car.png";
 import chicken from "../assets/chicken.png";
 import quiz from "../assets/quiz.png";
@@ -16,7 +17,7 @@ import spanish_flag from "../assets/Flag_of_Spain.png";
 export const projects = [
   {
     name: "Pet App (pending)",
-    pic: mia,
+    pic: petgarden,
     link: "",
     github: "",
     madeWith: "Next.js",
@@ -40,6 +41,13 @@ export const projects = [
     pic: car,
     link: "https://car-game-kohl.vercel.app/",
     github: "https://github.com/Inelukas/Car-Game",
+    madeWith: "React",
+  },
+  {
+    name: "Capy-Snake",
+    pic: capy,
+    link: "https://capy-snake.vercel.app/",
+    github: "https://github.com/Inelukas/capy-snake",
     madeWith: "React",
   },
   {

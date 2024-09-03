@@ -8,21 +8,35 @@ const StyledLanguage = styled.div`
   justify-content: center;
   align-items: center;
   text-align: center;
-  gap: 10px;
-  width: 180px;
-  height: 180px;
+  gap: 5px;
+  width: 100px;
+  height: 100px;
+  max-height: 200px;
   box-shadow: 5px 5px 5px 5px var(--shadow-color);
-  border-radius: 20px;
+  border-radius: 40px;
   padding: 10px 20px;
   transition: transform 0.3s ease;
+  font-size: 0.6rem;
 
   .flag {
-    height: 40px;
-    width: 80px;
+    height: 30px;
+    width: 60px;
+
+    @media screen and (min-width: 600px) {
+      height: 60px;
+      width: 120px;
+    }
   }
 
   img.star {
-    width: 15px;
+    width: 15%;
+  }
+
+  @media screen and (min-width: 600px) {
+    height: 180px;
+    width: 180px;
+    font-size: 1rem;
+    gap: 10px;
   }
 `;
 

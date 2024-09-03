@@ -28,6 +28,8 @@ background-image: var(--custom-image);
     color: var(--text-color);
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
+    /* overflow: ${(props) =>
+      props.currentPage === "about" ? "hidden" : "none"} */
   }
 
 `;

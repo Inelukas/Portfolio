@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 const StyledProject = styled.div`
   width: 350px;
+  max-width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
   box-shadow: 5px 5px 5px 5px var(--shadow-color);
-  border-radius: 20px;
+  border-radius: 40px;
   padding: 20px;
   text-align: center;
 
@@ -53,12 +54,12 @@ const StyledProject = styled.div`
     }
   }
 
-  @media screen and (max-width: 600px) {
-    max-width: 80%;
+  @media screen and (min-width: 600px) {
+    max-width: 100%;
   }
 `;
 
-export function Project({ data }) {
+export default function Project({ data }) {
   return (
     <StyledProject>
       <a href={data.link}>
