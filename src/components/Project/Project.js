@@ -44,6 +44,7 @@ const StyledProject = styled.div`
   p {
     font-size: 1rem;
     line-height: 1.5;
+    padding-bottom: 10px;
   }
 
   a {
@@ -66,7 +67,7 @@ export default function Project({ data }) {
         <h3>{data.name}</h3>
         <img src={data.pic} alt={data.name} />
       </a>
-
+      <p>{data.description}</p>
       <a className="github-link" href={data.github}>
         GitHub Repo (Made with: {data.madeWith})
       </a>

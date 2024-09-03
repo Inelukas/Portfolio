@@ -6,6 +6,8 @@ import StartPage from "./pages/StartPage";
 import { Route, Routes } from "react-router-dom";
 import Navigation from "./components/Navigation/Navigation";
 import useLocalStorageState from "use-local-storage-state";
+import Privacy from "./pages/Privacy";
+import LegalNotice from "./pages/LegalNotice";
 
 export default function App() {
   const [currentPage, setCurrentPage] = useLocalStorageState("page", {
@@ -34,6 +36,18 @@ export default function App() {
         <Route path="/projects" element={<ProjectsPage />} />
 
         <Route path="/skills" element={<SkillsPage language={language} />} />
+        <Route
+          path="/privacy"
+          element={
+            <Privacy language={language} onCurrentPage={setCurrentPage} />
+          }
+        />
+        <Route
+          path="/legal-notice"
+          element={
+            <LegalNotice language={language} onCurrentPage={setCurrentPage} />
+          }
+        />
       </Routes>
       <Navigation
         onToggleLanguage={toggleLanguage}

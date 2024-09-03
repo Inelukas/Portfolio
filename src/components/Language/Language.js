@@ -23,8 +23,8 @@ const StyledLanguage = styled.div`
     width: 60px;
 
     @media screen and (min-width: 600px) {
-      height: 60px;
-      width: 120px;
+      height: 50px;
+      width: 100px;
     }
   }
 
@@ -33,8 +33,13 @@ const StyledLanguage = styled.div`
   }
 
   @media screen and (min-width: 600px) {
-    height: 180px;
-    width: 180px;
+    height: 160px;
+    width: 160px;
+    font-size: 0.8rem;
+  }
+  @media screen and (min-width: 1200px) {
+    height: 200px;
+    width: 200px;
     font-size: 1rem;
     gap: 10px;
   }

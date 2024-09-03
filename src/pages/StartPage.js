@@ -3,6 +3,7 @@ import myself from "../assets/color-final.png";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Contacts from "../components/Contacts/Contacts";
+import Footer from "../components/Footer/Footer";
 
 const StyledStartPage = styled.div`
   height: 100%;
@@ -102,112 +103,115 @@ const StyledLinksContainer = styled.div`
 
 export default function StartPage({ language, onCurrentPage }) {
   return (
-    <StyledStartPage>
-      <div className="home">
-        <div className="introduction">
-          <div>
-            {language === "en" ? (
-              <>
-                <h1>Welcome.</h1>
-                <h2>I'm Lukas.</h2>
-                <h3>
-                  Dedicated React Developer &nbsp;|&nbsp; Multilingual World
-                  Traveller
-                </h3>
-              </>
-            ) : language === "de" ? (
-              <>
-                <h1>Willkommen.</h1>
-                <h2>Ich bin Lukas.</h2>
-                <h3>
-                  Engagierter React-Entwickler &nbsp;|&nbsp; Multilingualer
-                  Weltenbummler
-                </h3>
-              </>
-            ) : (
-              <>
-                <h1>ようこそ.</h1>
-                <h2>ルーカスです。</h2>
-                <h3>React開発者 &nbsp;|&nbsp; ポリグロット</h3>
-              </>
-            )}
+    <>
+      <StyledStartPage>
+        <div className="home">
+          <div className="introduction">
+            <div>
+              {language === "en" ? (
+                <>
+                  <h1>Welcome.</h1>
+                  <h2>I'm Lukas.</h2>
+                  <h3>
+                    Dedicated React Developer &nbsp;|&nbsp; Multilingual World
+                    Traveller
+                  </h3>
+                </>
+              ) : language === "de" ? (
+                <>
+                  <h1>Willkommen.</h1>
+                  <h2>Ich bin Lukas.</h2>
+                  <h3>
+                    Engagierter React-Entwickler &nbsp;|&nbsp; Multilingualer
+                    Weltenbummler
+                  </h3>
+                </>
+              ) : (
+                <>
+                  <h1>ようこそ.</h1>
+                  <h2>ルーカスです。</h2>
+                  <h3>React開発者 &nbsp;|&nbsp; ポリグロット</h3>
+                </>
+              )}
+            </div>
+            <h3>______________________________________</h3>
+            <StyledLinksContainer>
+              <motion.div
+                initial={{ x: "-100vw" }}
+                animate={{ x: 0 }}
+                transition={{ type: "spring", delay: 0.5, duration: 1 }}
+              >
+                <Link
+                  to="/about"
+                  onClick={() => {
+                    onCurrentPage("about");
+                  }}
+                >
+                  {language === "en"
+                    ? "→ About myself"
+                    : language === "de"
+                    ? "→ Über mich"
+                    : "私について"}
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ x: "-100vw" }}
+                animate={{ x: 0 }}
+                transition={{ type: "spring", delay: 1, duration: 1 }}
+              >
+                <Link
+                  to="/projects"
+                  onClick={() => {
+                    onCurrentPage("projects");
+                  }}
+                >
+                  {language === "en"
+                    ? "→ My projects"
+                    : language === "de"
+                    ? "→ Meine Projekte"
+                    : "プロジェクト"}
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ x: "-100vw" }}
+                animate={{ x: 0 }}
+                transition={{ type: "spring", delay: 1.5, duration: 1 }}
+              >
+                <Link
+                  to="/skills"
+                  onClick={() => {
+                    onCurrentPage("skills");
+                  }}
+                >
+                  {language === "en"
+                    ? "→ My skills"
+                    : language === "de"
+                    ? "→ Meine Fähigkeiten"
+                    : "スキル"}
+                </Link>
+              </motion.div>
+              <motion.div
+                initial={{ x: "-100vw" }}
+                animate={{ x: 0 }}
+                transition={{ type: "spring", delay: 2, duration: 1 }}
+              ></motion.div>
+              <div className="line" />
+            </StyledLinksContainer>
+            <Contacts />
           </div>
-          <h3>______________________________________</h3>
-          <StyledLinksContainer>
-            <motion.div
-              initial={{ x: "-100vw" }}
-              animate={{ x: 0 }}
-              transition={{ type: "spring", delay: 0.5, duration: 1 }}
-            >
-              <Link
-                to="/about"
-                onClick={() => {
-                  onCurrentPage("about");
-                }}
-              >
-                {language === "en"
-                  ? "→ About myself"
-                  : language === "de"
-                  ? "→ Über mich"
-                  : "私について"}
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ x: "-100vw" }}
-              animate={{ x: 0 }}
-              transition={{ type: "spring", delay: 1, duration: 1 }}
-            >
-              <Link
-                to="/projects"
-                onClick={() => {
-                  onCurrentPage("projects");
-                }}
-              >
-                {language === "en"
-                  ? "→ My projects"
-                  : language === "de"
-                  ? "→ Meine Projekte"
-                  : "プロジェクト"}
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ x: "-100vw" }}
-              animate={{ x: 0 }}
-              transition={{ type: "spring", delay: 1.5, duration: 1 }}
-            >
-              <Link
-                to="/skills"
-                onClick={() => {
-                  onCurrentPage("skills");
-                }}
-              >
-                {language === "en"
-                  ? "→ My skills"
-                  : language === "de"
-                  ? "→ Meine Fähigkeiten"
-                  : "スキル"}
-              </Link>
-            </motion.div>
-            <motion.div
-              initial={{ x: "-100vw" }}
-              animate={{ x: 0 }}
-              transition={{ type: "spring", delay: 2, duration: 1 }}
-            ></motion.div>
-            <div className="line" />
-          </StyledLinksContainer>
-          <Contacts />
-        </div>
 
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.5, duration: 2 }}
-          className="myself-box"
-        >
-          <img className="myself" src={myself} alt="Myself" />
-          <div className="myself-shadow" />
-        </motion.div>
-      </div>
-    </StyledStartPage>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.5, duration: 2 }}
+            className="myself-box"
+          >
+            <img className="myself" src={myself} alt="Myself" />
+            <div className="myself-shadow" />
+          </motion.div>
+        </div>
+      </StyledStartPage>
+      <Footer language={language} onCurrentPage={onCurrentPage} />
+    </>
   );
 }

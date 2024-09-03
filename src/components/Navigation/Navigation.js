@@ -20,7 +20,7 @@ const StyledNavigation = styled.div`
   .link {
     margin: 10px 0;
     cursor: pointer;
-    font-size: 1.2rem;
+    font-size: 1rem;
     transition: transform 0.3s ease;
     color: var(--text-color);
 
@@ -30,6 +30,12 @@ const StyledNavigation = styled.div`
 
     &:hover {
       text-decoration: underline;
+    }
+  }
+
+  @media screen and (min-width: 600px) {
+    .link {
+      font-size: 1.2rem;
     }
   }
 
