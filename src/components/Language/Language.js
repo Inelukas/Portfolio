@@ -9,8 +9,8 @@ const StyledLanguage = styled.div`
   align-items: center;
   text-align: center;
   gap: 5px;
-  width: 100px;
-  height: 100px;
+  width: 120px;
+  height: 120px;
   max-height: 200px;
   box-shadow: 5px 5px 5px 5px var(--shadow-color);
   border-radius: 40px;
@@ -20,11 +20,11 @@ const StyledLanguage = styled.div`
 
   .flag {
     height: 30px;
-    width: 60px;
+    width: 45px;
 
     @media screen and (min-width: 600px) {
       height: 50px;
-      width: 100px;
+      width: 75px;
     }
   }
 

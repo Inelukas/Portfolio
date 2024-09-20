@@ -95,7 +95,13 @@ export default function Navigation({
               onCurrentPage("home");
             }}
           >
-            {language === "en" ? "Home" : language === "de" ? "Home" : "ホーム"}
+            {language === "en" ? (
+              "Home"
+            ) : language === "de" ? (
+              "Home"
+            ) : (
+              <StyledJapNav>ホーム</StyledJapNav>
+            )}
           </Link>
           <Link
             to="/about"
@@ -107,11 +113,13 @@ export default function Navigation({
               onCurrentPage("about");
             }}
           >
-            {language === "en"
-              ? "About"
-              : language === "de"
-              ? "Über mich"
-              : "自己紹介"}
+            {language === "en" ? (
+              "About"
+            ) : language === "de" ? (
+              "Über mich"
+            ) : (
+              <StyledJapNav>プロフィール</StyledJapNav>
+            )}
           </Link>
           <Link
             to="/projects"
@@ -130,7 +138,7 @@ export default function Navigation({
             ) : language === "de" ? (
               "Projekte"
             ) : (
-              <StyledJapNav>プロジェクト</StyledJapNav>
+              <StyledJapNav>制作物一覧</StyledJapNav>
             )}
           </Link>
           <Link
@@ -145,11 +153,13 @@ export default function Navigation({
               onCurrentPage("skills");
             }}
           >
-            {language === "en"
-              ? "Skills"
-              : language === "de"
-              ? "Skills"
-              : "スキル"}
+            {language === "en" ? (
+              "Skills"
+            ) : language === "de" ? (
+              "Skills"
+            ) : (
+              <StyledJapNav>スキル</StyledJapNav>
+            )}
           </Link>
         </StyledNavigation>
       )}

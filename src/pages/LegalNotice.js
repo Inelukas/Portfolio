@@ -22,27 +22,32 @@ export default function LegalNotice({ language, onCurrentPage }) {
   return (
     <>
       <StyledLegalNotice>
-        <h1>Impressum</h1>
+        <h1>Imprint</h1>
 
         <div>
           <h2>Lukas Klipp</h2>
           <p>Marktstraße 17</p>
           <p>27432 Bremervörde</p>
-          <p>Deutschland</p>
+          <p>Germany</p>
         </div>
         <div>
-          <p>Tel.: 0421 16162021</p>
-
-          <p>E-Mail: lukasklipp_al@yahoo.de</p>
+          <p>Email: klipp.lukas@gmail.com</p>
         </div>
         <p>
-          Plattform der EU-Kommission zur Online-Streitbeilegung:&nbsp;
+          EU Commission's platform for online dispute resolution:&nbsp;
           <a href="https://ec.europa.eu/odr">https://ec.europa.eu/odr</a>
         </p>
 
         <p>
-          Wir sind zur Teilnahme an einem Streitbeilegungsverfahren vor einer
-          Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
+          We are neither obliged nor willing to participate in a dispute
+          resolution procedure before a consumer arbitration board.
+        </p>
+        <p>
+          Credits for the cat sprite sheet used in the cat animation go
+          to:&nbsp;
+          <a href="https://bowpixel.itch.io/cat-50-animations">
+            https://bowpixel.itch.io/cat-50-animations
+          </a>
         </p>
       </StyledLegalNotice>
 

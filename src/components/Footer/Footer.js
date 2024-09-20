@@ -2,11 +2,12 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 const StyledFooter = styled.footer`
-  width: 100%;
-  height: 30px;
+  width: 100vw;
   display: flex;
   justify-content: center;
   gap: 20px;
+  position: fixed;
+  bottom: 10px;
   a {
     z-index: 2;
     color: var(--primary-color);
@@ -42,7 +43,7 @@ export default function Footer({ language, onCurrentPage }) {
           ? "Legal Notice"
           : language === "de"
           ? "Impressum"
-          : "Impressum"}
+          : "サイト運営者情報"}
       </Link>
     </StyledFooter>
   );

@@ -1,5 +1,5 @@
 import hangman from "../assets/hangman.png";
-import petgarden from "../assets/petgarden.png";
+import petapp from "../assets/petapp.png";
 import art from "../assets/art.png";
 import capy from "../assets/capy.png";
 import car from "../assets/car.png";
@@ -16,83 +16,89 @@ import spanish_flag from "../assets/Flag_of_Spain.png";
 
 export const projects = [
   {
-    name: "Pet App (pending)",
-    pic: petgarden,
-    link: "",
-    github: "",
-    madeWith: "Next.js",
+    name: {
+      en: "Furry Tails (Group Project)",
+      jp: "ペット育成アプリ (グループプロジェクト)",
+    },
+    pic: petapp,
+    link: "https://pet-app-pied.vercel.app/",
+    github: "https://github.com/Inelukas/pet-app",
+    madeWith: "React, Next.js, Styled Components, Framer Motion",
     description:
       "My team and I developed a pet-raising app as our capstone project. In this app, users can create and interact with adorable animated pets. Features include feeding, playing, and training the pets through engaging mini-games.",
   },
   {
-    name: "Hangman",
+    name: { en: "Hangman (One Day Challenge)", jp: "言葉当てゲーム" },
     pic: hangman,
     link: "https://hangman-lilac-nine.vercel.app/",
     github: "https://github.com/Inelukas/Hangman",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "A classic hangman game where a random English word is fetched from an API. With each incorrect guess, a new piece of the gallows is added.",
   },
   {
-    name: "Chicken Game",
+    name: { en: "Chicken Game (One Day Challenge)", jp: "パックマン" },
     pic: chicken,
     link: "https://chicken-game-jade.vercel.app/",
     github: "https://github.com/Inelukas/Chicken-Game",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "Eat your medicine before the chickens catch you in this playful take on the classic Pac-Man game!",
   },
   {
-    name: "Street Game",
+    name: { en: "Street Game (One Day Challenge)", jp: "道路渡りゲーム" },
     pic: car,
     link: "https://car-game-kohl.vercel.app/",
     github: "https://github.com/Inelukas/Car-Game",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "Navigate across the street without getting hit by oncoming cars. Each successful crossing speeds up the traffic and reveals the answer to the question nobody asked: 'Why did the smiley cross the road?'",
   },
   {
-    name: "Capy-Snake",
+    name: { en: "Capy-Snake (One Day Challenge)", jp: "ヘビゲーム" },
     pic: capy,
     link: "https://capy-snake.vercel.app/",
     github: "https://github.com/Inelukas/capy-snake",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "Expand your capybara family in this entertaining twist on the iconic Snake game!",
   },
   {
-    name: "Quiz App",
+    name: { en: "Quiz App", jp: "クイズアプリ" },
     pic: quiz,
     link: "https://new-quiz-app-pi.vercel.app/",
     github: "https://github.com/Inelukas/new-quiz-app",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "A classic quiz app where you can write, edit, and delete questions, or fetch them from an API. Adding tags makes it easier to navigate and organize your question cards.",
   },
   {
-    name: "Color Themes",
+    name: {
+      en: "Color Themes (Bootcamp Project)",
+      jp: "カラーパレットジェネレーター",
+    },
     pic: themes,
     link: "https://recap4-v-2.vercel.app/",
     github: "https://github.com/Inelukas/recap4-v.2",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "An exercise to practice prop drilling and state management in React. Create color themes with an integrated contrast rating system.",
   },
   {
-    name: "To-Do App",
+    name: { en: "To-Do App", jp: "ToDoアプリ" },
     pic: todo,
     link: "https://to-do-list-gamma-one-95.vercel.app/",
     github: "https://github.com/Inelukas/to-do-list",
-    madeWith: "React",
+    madeWith: "React, Styled Components",
     description:
       "A typical to-do app where you can add, edit, and delete tasks. Mark tasks as completed by crossing them out.",
   },
   {
-    name: "Art Piece App",
+    name: { en: "Art Piece App (Bootcamp Project)", jp: "アートピースアプリ" },
     pic: art,
     link: "https://art-piece-app.vercel.app/",
     github: "https://github.com/Inelukas/recap-5",
-    madeWith: "Next.js",
+    madeWith: "React, Next.js, Styled Components",
     description:
       "An exercise in Next.js where we, a group of three, created a small app that allows you to view, bookmark, and comment on art pieces.",
   },

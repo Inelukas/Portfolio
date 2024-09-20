@@ -4,49 +4,61 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import Contacts from "../components/Contacts/Contacts";
 import Footer from "../components/Footer/Footer";
+import AnimatedCat from "../components/Cat/Cat";
 
 const StyledStartPage = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 0 5%;
+  margin: 0 3%;
   padding: 20px;
+  font-size: 0.7rem;
+  height: 100vh;
+  padding-bottom: 50px;
+
+  .myself-box {
+    position: relative;
+  }
 
   .home {
-    height: 90vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;
+    line-height: 1.4;
 
-    h1 {
-      font-size: 3.5rem;
-    }
-
-    h2,
-    h3 {
-      font-size: 1.5rem;
+    @media screen and (min-width: 600px) {
+      font-size: 1.2rem;
+      line-height: 1.1;
     }
 
     @media screen and (min-width: 900px) {
+      height: 100vh;
       flex-direction: row;
       gap: 40px;
+      font-size: 1.5rem;
+      line-height: 1.4;
     }
   }
 
   .line {
     position: absolute;
-    right: 30px;
+    right: 20px;
     top: 0;
     background-color: var(--text-color);
     width: 2px;
-    height: 150px;
+    height: 120px;
+
+    @media screen and (min-width: 600px) {
+      height: 150px;
+      right: 30px;
+    }
   }
 
   .myself {
-    max-width: 200px;
+    max-width: 180px;
     border-radius: 20px;
 
     @media screen and (min-width: 900px) {
@@ -63,14 +75,15 @@ const StyledStartPage = styled.div`
     border-radius: 20px;
     bottom: 5px;
     right: 0px;
-    width: 210px;
-    height: 100px;
+    width: 188px;
+    height: 98px;
     box-shadow: 15px 15px 10px var(--text-color);
 
     @media screen and (min-width: 900px) {
       width: 310px;
       height: 148px;
       box-shadow: 20px 20px 10px;
+      bottom: 8px;
     }
   }
 `;
@@ -128,9 +141,9 @@ export default function StartPage({ language, onCurrentPage }) {
                 </>
               ) : (
                 <>
-                  <h1>ようこそ.</h1>
-                  <h2>ルーカスです。</h2>
-                  <h3>React開発者 &nbsp;|&nbsp; ポリグロット</h3>
+                  <h1>こんにちは！</h1>
+                  <h2>ルーカスと申します</h2>
+                  <h3>React開発者 &nbsp;|&nbsp; マルチリンガル</h3>
                 </>
               )}
             </div>
@@ -151,7 +164,7 @@ export default function StartPage({ language, onCurrentPage }) {
                     ? "→ About myself"
                     : language === "de"
                     ? "→ Über mich"
-                    : "私について"}
+                    : "プロフィール"}
                 </Link>
               </motion.div>
               <motion.div
@@ -169,7 +182,7 @@ export default function StartPage({ language, onCurrentPage }) {
                     ? "→ My projects"
                     : language === "de"
                     ? "→ Meine Projekte"
-                    : "プロジェクト"}
+                    : "制作物一覧"}
                 </Link>
               </motion.div>
               <motion.div
@@ -206,6 +219,7 @@ export default function StartPage({ language, onCurrentPage }) {
             transition={{ delay: 0.5, duration: 2 }}
             className="myself-box"
           >
+            <AnimatedCat />
             <img className="myself" src={myself} alt="Myself" />
             <div className="myself-shadow" />
           </motion.div>

@@ -8,11 +8,10 @@ const StyledAboutPage = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   text-align: justify;
   gap: 10px;
   line-height: 1.5;
-  box-shadow: 5px 5px var(--primary-color);
+  box-shadow: 5px 5px 5px var(--primary-color);
   border-radius: 10px;
   font-size: 0.65rem;
 
@@ -25,7 +24,6 @@ const StyledAboutPage = styled.div`
   @media screen and (min-width: 900px) {
     font-size: 0.8rem;
     margin: 5% 10%;
-    width: auto;
     padding: 20px;
   }
 
@@ -35,121 +33,112 @@ const StyledAboutPage = styled.div`
   }
 `;
 
+const StyledTitle = styled.h2`
+  align-self: center;
+`;
+
 export default function AboutPage({ language }) {
   return (
     <StyledAboutPage>
       {language === "jp" && (
         <>
-          <h2>こんにちは！</h2>
+          <StyledTitle>こんにちは！</StyledTitle>
           <p>
-            ルーカスと申します。私はグローバルノマドであり、複数の言語を操るポリグロットです。
-            最近では、プログラミングに対する情熱が高まり、熱心なコード愛好者となっております。🤓
+            ルーカスと申します。幼い頃から日本文化に強く魅了され、アニメやゲームを通して日本語を学び始めました。日本語を学んでかれこれもう10年になります。兄がプログラマーであることと、日本文化以外にもロジカルに物事を考えることが好きだったことから、プログラミングにも深い興味を持っておりましたが、今年ついにその業界に足を踏み入れてみようと思い、三ヶ月間の集中プログラミングコースに参加しました。
           </p>
           <p>
-            8年間、私は東アジアに魅了され続けてきた。日本では、毎週地元の銭湯に通うことが習慣となり、
-            43度のお湯の中で、名前も知らない年配の男性たちと楽しく会話を交わしました。韓国では、
-            夜遅くまで営業しているコインカラオケに足を運び、暗い部屋で一人で思い切り歌うことが日常となりました。
-            台湾ではハイキングの楽しさを知り、週末には何度も台北近郊の山々に登り、時には断崖を登ることもありました。
-            そして今、私はドイツに戻り、旅行と言語学習に加えて、プログラミングという新たな情熱を見つけました。
+            そこでは、JavaScriptやReact、Next.jsを学びながら、クイズアプリやゲーム、このウェブサイトなど、さまざまなプロジェクトに取り組みました。さらに、GitやGitHub、MongoDBの使い方を学び、Node.jsを通してバックエンド開発の世界にも触れることができました。コースの最後の一ヶ月では、四人グループでペット育成アプリを開発し、プロジェクトを進める中で、マージ衝突の解決方法や他者のコードを読むスキルを身につけることができました。今後も新たなプロジェクトに挑戦しながら、Pythonなど新しいプログラミング言語を学び、フルスタックプログラマーを目指して、IT業界でさらなる成長を遂げたいと考えています。
           </p>
           <p>
-            ITの旅はドイツのコーディングブートキャンプで始まり、そこでコーディングスキルを向上させるだけでなく、
-            論理的思考と創造性を駆使して問題を解決する楽しさを見出しました。魅力的なプロジェクトの実装や、
-            他者と最高のコードについて議論することに、私は全力で取り組んでいます！💻
+            プライベートでは、アニメやゲームだけでなく、ハイキングやカラオケも趣味です。台湾では山からの豊かな自然の景色を楽しんだり（台湾に住んでいたため）、韓国では深夜まで歌を歌ったり（韓国に住んでいたため）しました。（現在はドイツ在住）
           </p>
           <p>
-            コーディングをしていない際には、しばしば言語の学習に励んでいます。英語と日本語は流暢に話すことができ、
-            中国語もビジネスレベルで話せます。さらに、日常会話の韓国語にも精通しています。
-            最近、新しい挑戦を求めてスペイン語の学習に励んでいます。🤯
-          </p>
-          <p>
-            新たな挑戦に対して常に期待感を抱いており、次の冒険が現実の世界であるのか、あるいはデジタルの世界であるのか、非常に楽しみにしています。
+            本ポートフォリオで、私のプログラミングへの思いを受けとっていただけたらうれしいです。
           </p>
         </>
       )}
       {language === "de" && (
         <>
-          <h2>Hi!</h2>
+          <StyledTitle>Hi!</StyledTitle>
           <p>
-            Ich bin Lukas – ein Weltenbummler, Sprachliebhaber und mittlerweile
-            auch begeisterter Code-"Otaku". 🤓
+            Ich bin Lukas – ein Weltenbummler, Sprachenthusiast und inzwischen
+            auch leidenschaftlicher Web Developer.
           </p>
           <p>
-            Für acht Jahre habe ich mein Herz in Ostasien verloren. In Japan
-            gehörte es zur Routine, jede Woche ein örtliches "sentou"
-            (öffentliches Bad) zu besuchen, um bei 43 Grad heißem Wasser mit
-            nackten, älteren Herren zu plaudern, deren Namen ich nie erfahren
-            sollte. In Südkorea zog es mich regelmäßig mitten in der Nacht ins
-            24/7 geöffnete Münz-Karaoke, wo ich mir allein in einer dunklen
-            Kammer die Seele aus dem Leib sang. In Taiwan entdeckte ich die
-            Freude am Wandern und verbrachte an freien Wochenenden oft Zeit auf
-            Bergen nahe Taipehs, manchmal an Abgründen entlang, deren Aussicht
-            auf das nahegelegene Meer die Existenzängste immer wieder wert war.
-            Und jetzt, nach all dieser Zeit, bin ich zurück in Deutschland. Hier
-            widme ich mich einer weiteren Leidenschaft neben dem Reisen und
-            Sprachenlernen: dem Programmieren.
+            Schon als Kind hat mich die japanische Kultur total fasziniert, und
+            mit 15 Jahren habe ich angefangen, mir Japanisch durch Anime und
+            Spiele selbst beizubringen. Meine Liebe zu Sprachen und Logikrätseln
+            hat mich dann irgendwann fast schon natürlich in Richtung
+            Programmierung gezogen. Dieses Jahr habe ich den Schritt gewagt und
+            einen dreimonatigen Intensivkurs in Webentwicklung gemacht. Während
+            des Kurses habe ich JavaScript, React, Next.js und Node.js
+            kennengelernt und im letzten Monat gemeinsam mit meinem Team eine
+            Tamagotchi-App entwickelt. Dabei habe ich nicht nur gelernt, User
+            Stories zu schreiben und Merge-Konflikte zu lösen, sondern auch, wie
+            spannend es sein kann, den Code anderer zu verstehen. Jetzt, nach
+            dem Bootcamp, bin ich voller Motivation, weiter an neuen Projekten
+            zu arbeiten, Python zu lernen und mich als Full-Stack-Entwickler
+            weiterzuentwickeln.
           </p>
+
           <p>
-            Meine Reise in die IT-Welt begann mit einem Web Development
-            Bootcamp, wo ich nicht nur meine Coding-Skills verbessert, sondern
-            auch entdeckt habe, wie sehr ich es liebe, Probleme mit Logik und
-            Kreativität zu lösen. Ob es darum geht, coole Projekte umzusetzen
-            oder mit anderen Nerds über den besten Code zu fachsimpeln – ich bin
-            voll dabei! 💻
+            Bevor ich in die IT-Welt eingetaucht bin, habe ich acht Jahre in
+            Ostasien gelebt. In Japan habe ich es mir zur Routine gemacht, jede
+            Woche ein lokales "sentou" (öffentliches Bad) zu besuchen und mich
+            bei 43 Grad heißem Wasser mit älteren Herren zu unterhalten, deren
+            Namen ich nie erfahren habe. In Südkorea war ich ein Stammgast in
+            den 24/7 geöffneten Münz-Karaoke-Bars, wo ich mir mitten in der
+            Nacht in kleinen Kammern die Seele aus dem Leib gesungen habe. Und
+            in Taiwan habe ich meine Liebe zum Wandern entdeckt, besonders an
+            den Wochenenden, wenn ich oft auf den Bergen rund um Taipeh
+            unterwegs war. Der Blick auf das Meer von den steilen Klippen aus
+            hat dabei jede Existenzangst mehr als wettgemacht.
           </p>
+
           <p>
-            Wenn ich nicht gerade an meinem Code tüftle, findest du mich
-            wahrscheinlich beim Sprachenlernen. Englisch und Japanisch spreche
-            ich fließend, Mandarin kann ich auf professionellem Niveau, und mit
-            Alltags-Koreanisch komme ich auch gut zurecht. Spanisch und Latein
-            sind ebenfalls in meinem Repertoire, falls du mal einen Übersetzer
-            für antike Texte brauchst. 😉
-          </p>
-          <p>
-            Ich freue mich immer über neue Herausforderungen und bin gespannt,
-            wohin die nächste Reise geht – ob in der realen Welt oder in der
+            Ich bin immer offen für neue Herausforderungen und gespannt, wohin
+            die nächste Reise mich führt – ob in der realen Welt oder in der
             digitalen.
           </p>
         </>
       )}
       {language === "en" && (
         <>
-          <h2>Hi!</h2>
+          <StyledTitle>Hi!</StyledTitle>
           <p>
-            I'm Lukas – a traveler, language lover, and now an enthusiastic code
-            junkie. 🤓
+            Hi, I'm Lukas – a globetrotter, language enthusiast, and now a
+            passionate web developer.
           </p>
           <p>
-            For eight years, I lost my heart to East Asia. In Japan, it became a
-            routine to visit a local "sentou" (public bath) every week, where I
-            would chat with naked, older gentlemen in 43-degree hot water, whose
-            names I would never learn. In South Korea, I regularly found myself
-            at a 24/7 coin karaoke in the middle of the night, singing my heart
-            out alone in a dark room. In Taiwan, I discovered the joy of hiking
-            and spent many free weekends climbing mountains near Taipeh,
-            sometimes along sheer cliffs where the view of the nearby sea made
-            the existential fears always worthwhile. And now, after all this
-            time, I am back in Germany. Here, I am dedicating myself to another
-            passion besides traveling and learning languages: programming.
+            Ever since I was a kid, I've been fascinated by Japanese culture,
+            and at 15, I started teaching myself Japanese through anime and
+            games. My love for languages and logic puzzles eventually led me to
+            explore the world of programming. This year, I finally took the leap
+            and enrolled in a three-month intensive web development course.
+            During the course, I got familiar with JavaScript, React, Next.js,
+            and Node.js. In the final month, my team and I developed a
+            Tamagotchi app, which was an amazing experience to learn how to
+            write user stories, handle merge conflicts, and dive into other
+            people's code. Now that the bootcamp is behind me, I'm motivated to
+            keep working on new projects, learn Python, and continue growing as
+            a full-stack developer.
           </p>
+
           <p>
-            My journey into the IT world began with a bootcamp at neuefische,
-            where I not only improved my coding skills but also discovered how
-            much I love solving problems with logic and creativity. Whether it's
-            about implementing cool projects or nerding out with others about
-            the best code – I'm all in! 💻
+            Before diving into the tech world, I spent eight years living in
+            East Asia. In Japan, it became my weekly routine to visit a local
+            "sentou" (public bath) and chat with elderly men in 43-degree water,
+            whose names I never learned. In South Korea, I often found myself in
+            24/7 coin-operated karaoke rooms, singing my heart out in the middle
+            of the night. And in Taiwan, I discovered my passion for hiking,
+            spending my weekends on the mountains near Taipei. The breathtaking
+            views of the sea from steep cliffs always made the existential fears
+            totally worth it.
           </p>
+
           <p>
-            When I'm not tinkering with my code, you'll probably find me
-            learning languages. I speak English and Japanese fluently, can
-            handle Mandarin at a professional level, and I also get by well with
-            everyday Korean. Spanish and Latin are also in my repertoire if you
-            ever need a translator for ancient texts. 😉
-          </p>
-          <p>
-            I'm always excited about new challenges and can't wait to see where
-            the next journey takes me – whether in the real world or the digital
-            one.
+            I'm always up for new challenges and excited to see where the next
+            journey will take me – whether in the real world or the digital one.
           </p>
         </>
       )}

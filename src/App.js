@@ -33,7 +33,10 @@ export default function App() {
         />
         <Route path="/about" element={<AboutPage language={language} />} />
 
-        <Route path="/projects" element={<ProjectsPage />} />
+        <Route
+          path="/projects"
+          element={<ProjectsPage language={language} />}
+        />
 
         <Route path="/skills" element={<SkillsPage language={language} />} />
         <Route

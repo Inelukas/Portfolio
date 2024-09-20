@@ -2,11 +2,12 @@ import styled from "styled-components";
 
 const StyledProject = styled.div`
   width: 350px;
+  min-height: 550px;
   max-width: 80%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: 5px 5px 5px 5px var(--shadow-color);
+  box-shadow: 3px 3px 3px 3px;
   border-radius: 40px;
   padding: 20px;
   text-align: center;
@@ -17,7 +18,7 @@ const StyledProject = styled.div`
   }
 
   &:hover {
-    box-shadow: 10px 10px 10px 10px var(--primary-color);
+    box-shadow: 5px 5px 5px 5px var(--shadow-color);
   }
 
   img {
@@ -60,11 +61,11 @@ const StyledProject = styled.div`
   }
 `;
 
-export default function Project({ data }) {
+export default function Project({ data, language }) {
   return (
     <StyledProject>
       <a href={data.link}>
-        <h3>{data.name}</h3>
+        <h3>{language === "jp" ? data.name.jp : data.name.en}</h3>
         <img src={data.pic} alt={data.name} />
       </a>
       <p>{data.description}</p>

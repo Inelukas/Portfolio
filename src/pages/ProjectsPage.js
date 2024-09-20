@@ -18,11 +18,11 @@ const StyledProjectsPage = styled.div`
   }
 `;
 
-export default function ProjectsPage() {
+export default function ProjectsPage({ language }) {
   return (
     <StyledProjectsPage>
       {projects.map((project, index) => (
-        <Project key={index} data={project} />
+        <Project key={index} data={project} language={language} />
       ))}
     </StyledProjectsPage>
   );

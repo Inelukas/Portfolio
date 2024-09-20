@@ -8,7 +8,7 @@ const StyledSkillsPage = styled.div`
   flex-direction: column;
   align-items: center;
   margin: 0 10%;
-  margin-top: 10%;
+  margin-top: 15%;
   font-size: 0.8rem;
   text-align: center;
 
@@ -27,8 +27,8 @@ const StyledSkillsPage = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 30px;
-    margin: 20% 0;
+    gap: 20px;
+    margin: 10% 0;
     flex-wrap: wrap;
 
     @media screen and (min-width: 600px) {
@@ -51,28 +51,28 @@ export default function SkillsPage({ language }) {
     <StyledSkillsPage>
       <h2>
         {language === "en"
-          ? "I have experience with these technologies:"
+          ? "I have experience with these technologies / tools:"
           : language === "de"
-          ? "Ich habe Erfahrung mit folgenden Technologien:"
-          : "以下の技術が使えます："}
+          ? "Ich habe Erfahrung mit folgenden Technologien / Tools:"
+          : "技術"}
       </h2>
       <div className="skills">
         {skills.map((skill) => (
           <Skill data={skill} />
         ))}
       </div>
-      <h2>
+      {/* <h2>
         {language === "en"
           ? "I can speak the following languages:"
           : language === "de"
           ? "Ich spreche folgende Sprachen:"
-          : "以下の言語が話せます："}
+          : "言語"}
       </h2>
       <div className="skills lang-skills">
         {languages.map((lang) => (
           <Language data={lang} language={language} />
         ))}
-      </div>
+      </div> */}
     </StyledSkillsPage>
   );
 }

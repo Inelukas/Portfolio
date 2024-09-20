@@ -5,7 +5,7 @@ export const GlobalStyle = createGlobalStyle`
   :root {
     --primary-color: #973131;
     --secondary-color: #E0A75E;
-    --background-color: #000000; //#151515
+    --background-color: #000000;
     --side-color: #F9D689;
     --shadow-color: rgba(151, 49, 49, 0.5);
     --text-color: #F5E7B2;
@@ -28,8 +28,13 @@ background-image: var(--custom-image);
     color: var(--text-color);
     font-family: 'Roboto', sans-serif;
     font-weight: 400;
-    /* overflow: ${(props) =>
-      props.currentPage === "about" ? "hidden" : "none"} */
+    overflow: ${({ currentPage }) =>
+      currentPage === "home" ||
+      currentPage === "about" ||
+      currentPage === "skills" ||
+      currentPage === "legal"
+        ? "hidden"
+        : "none"}
   }
 
 `;
