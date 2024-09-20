@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 const StyledAboutPage = styled.div`
-  height: 90vh;
+  height: 80vh;
   width: auto;
   margin: 0 5%;
   padding: 10px;
@@ -13,7 +13,7 @@ const StyledAboutPage = styled.div`
   line-height: 1.5;
   box-shadow: 5px 5px 5px var(--primary-color);
   border-radius: 10px;
-  font-size: 0.65rem;
+  font-size: 0.8rem;
 
   @media screen and (min-width: 600px) {
     padding: 15px;

@@ -8,11 +8,10 @@ import Navigation from "./components/Navigation/Navigation";
 import useLocalStorageState from "use-local-storage-state";
 import Privacy from "./pages/Privacy";
 import LegalNotice from "./pages/LegalNotice";
+import { useState } from "react";
 
 export default function App() {
-  const [currentPage, setCurrentPage] = useLocalStorageState("page", {
-    defaultValue: "home",
-  });
+  const [currentPage, setCurrentPage] = useState("home");
   const [language, setLanguage] = useLocalStorageState("language", {
     defaultValue: "en",
   });
