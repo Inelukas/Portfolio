@@ -7,7 +7,7 @@ const StyledPrivacy = styled.main`
   width: 80vw;
   margin: 10vh 10vw;
   gap: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 100px;
 
   @media screen and (min-width: 900px) {
     width: 60vw;

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
 const StyledAboutPage = styled.div`
-  height: auto;
+  height: 90vh;
   width: auto;
-  margin: 5% 5%;
+  margin: 0 5%;
   padding: 10px;
   display: flex;
   flex-direction: column;
@@ -19,6 +19,7 @@ const StyledAboutPage = styled.div`
     padding: 15px;
     margin-top: 15%;
     margin-bottom: 0%;
+    height: auto;
   }
 
   @media screen and (min-width: 900px) {
